@@ -1,108 +1,100 @@
-🧑‍💼 Employee Management System (ASP.NET Web Forms)
-An Employee Management System built using ASP.NET Web Forms with a SQL Server backend. This web-based application enables HR and Admin users to efficiently manage employee data while maintaining secure access based on user roles.
+# 🧑‍💼 Employee Management System (ASP.NET Web Forms)
 
-🔍 Overview
-This project was developed as part of an academic assignment to demonstrate:
+A role-based **Employee Management System** built using **ASP.NET Web Forms** and **SQL Server**, designed for HR and Admin users to manage employee records with secure access, personalized dashboards, and session control.
 
-**Role-based user authentication and authorization
-**
-Session management with timeout handling
+## 📚 Project Overview
 
-CRUD operations using SQL Server
+This system demonstrates key web application concepts including:
 
-Master-child page architecture for modular web design
+- Role-based authentication & authorization
+- CRUD operations with SQL Server
+- Session management with timeout control
+- Modular design using Master and Content pages
 
-🎯 Functional Features
-✅ User Roles & Authentication
-Admin: Full access to manage all employee records
+---
 
-HR Manager: Can view and edit employee details
+## 🚀 Features
 
-Employee: Can view only their own profile
+### 🔐 User Authentication & Authorization
 
-Session-based login/logout with Forms Authentication
+- **Login & Logout** functionality using **Forms Authentication**
+- Role-based access:
+  - **Admin**: Full access to all employee records
+  - **HR Manager**: Can view and update employee details
+  - **Employee**: Can view their own profile only
+- Unauthorized access redirects to the login page
 
-Unauthorized users are redirected to the login page
+### 📄 Employee Management (CRUD)
 
-✅ Employee Management (CRUD)
-Add, update, view, and delete employee records
+- Create, Read, Update, Delete (CRUD) operations for employee records
+- Stores fields: `Name`, `Email`, `Department`, `Designation`, `Salary`, `Joining Date`
+- Uses `GridView` for interactive data display and management
 
-Details include: Name, Email, Department, Designation, Salary, Joining Date
+### 🖥️ Dashboards
 
-Employee records displayed using GridView with inline Edit/Delete
+- **Employee Dashboard**: View personal profile and announcements
+- **HR/Admin Dashboard**: Overview of total employees and department stats
 
-✅ Personalized Dashboards
-Employee Dashboard: Displays profile & company announcements
+### 🧭 Master & Content Pages
 
-Admin/HR Dashboard: Shows total employees and department-wise stats
+- Reusable **Master Page** with a consistent header, footer, and navigation
+- Separate **Content Pages** for each module (e.g., Dashboard, Employee List)
 
-✅ Web Architecture
-Master Page: Common header, footer, and navigation
+### ⏲️ Session Management
 
-Content Pages: Modular content for employee list, dashboard, reports
+- Session timeout after **20 minutes** of inactivity
+- Optional: Warning message before auto-logout
 
-✅ Session Management
-20-minute session timeout
+---
 
-Session expiry warning before auto-logout
+## 🛠️ Tech Stack
 
-🛠️ Technologies Used
-ASP.NET Web Forms (.NET Framework)
+- **ASP.NET Web Forms** (.NET Framework)
+- **SQL Server** (Relational Database)
+- **ADO.NET** (Database Access)
+- **HTML/CSS** (Frontend)
+- **Visual Studio** (Development Environment)
 
-SQL Server
+---
 
-ADO.NET
+## 📂 Project Structure
 
-C#
+EmployeeManagementSystem/ ├── App_Code/ │ └── DataAccess.cs # Handles DB operations ├── Models/ │ └── EmployeeInfo.cs # Employee model class ├── Pages/ │ ├── Login.aspx │ ├── Dashboard.aspx │ ├── EmployeeList.aspx │ └── ... ├── Database/ │ └── CreateDatabase.sql # SQL script to create and seed database ├── Site.Master # Master layout page └── Web.config # Configuration file
 
-Visual Studio
+---
+### Prerequisites
+- Visual Studio (with ASP.NET support)
+- SQL Server (Express or full version)
+- .NET Framework
 
-HTML/CSS
+### Steps to Run
 
-📂 Project Structure
-arduino
-Copy
-Edit
-├── App_Code/
-│   └── DataAccess.cs           // Handles DB interactions
-├── Models/
-│   └── EmployeeInfo.cs        // Employee model
-├── Pages/
-│   └── Login.aspx
-│   └── Dashboard.aspx
-│   └── EmployeeList.aspx
-│   └── ...
-├── Database/
-│   └── CreateDatabase.sql     // SQL script for DB schema & seed data
-├── Site.Master                // Master Page
-└── Web.config                 // Configurations & connection strings
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/employee-management-system.git
+2. Open in Visual Studio
 
+3. Run the SQL Script
 
-🚀 How to Run
-Clone this repository.
+    Open Database/CreateDatabase.sql in SQL Server Management Studio (SSMS)
 
-Open the project in Visual Studio.
+    Execute to create the database and tables
 
-Update the Web.config with your SQL Server instance and connection string.
+4. Configure Connection String
 
-Run the CreateDatabase.sql file to create the database and seed data.
+    In Web.config, update your SQL Server instance:
+      <connectionStrings>
+        <add name="YourConnectionStringName"
+           connectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=EmployeeDB;Integrated Security=True"
+           providerName="System.Data.SqlClient" />
+      </connectionStrings>
 
-Run the application (F5) and login using seeded credentials.
+5. Run the project
 
-🧪 Sample Credentials
-Role	Username	Password
-Admin	admin	admin123
-HR	hr	hr123
-Employee	emp1	emp123
-⚠️ Update credentials and roles in the database after setup if needed.
+    Press F5 in Visual Studio or use the "Start Debugging" button
 
-📌 Future Improvements
-
-Switch to ASP.NET MVC or Blazor
-
-Implement password hashing and encryption
-
-Add search & filter for employee records
-
-Implement responsive design with Bootstrap
-
+🧪 Sample User Credentials
+    Role	Username	Password
+    Admin	admin	admin123
+      HR	hr	hr123
+  Employee	emp1	emp123
